@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (it.requested.id.getNamespace() == 'com.huawei.agconnect') {
+                if (it.requested.id.id == 'com.huawei.agconnect.agcp') {
+                    it.useModule('com.huawei.agconnect:agcp:1.6.5.300')
+                }
+            } else {
+                println ">  ${it.target}"
+            }
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+}
+rootProject.name = "Wallet"
+include ':app'
