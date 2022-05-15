@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.alibknc.wallet.R
-import com.alibknc.wallet.models.Cards
+import com.alibknc.wallet.models.Card
 import com.alibknc.wallet.viewmodels.DetailsViewModel
 
 class DetailsActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var d_cardDateText: TextView
     private lateinit var d_cvvText: TextView
     private lateinit var d_idText: TextView
-    private lateinit var card: Cards
+    private lateinit var card: Card
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

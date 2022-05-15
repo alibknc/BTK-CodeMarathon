@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
-import com.alibknc.wallet.models.Cards
+import com.alibknc.wallet.models.Card
 
 const val db_name = "Database"
 const val table_name = "cards"
@@ -21,7 +21,7 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
 
     }
 
-    fun insertData(card: Cards): Long {
+    fun insertData(card: Card): Long {
         val temp = getCardWithNumber(card.cardNumber!!)
         val db = this.writableDatabase
         if (temp.id == null) {
@@ -32,20 +32,20 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
             cv.put("cardIssuer", card.cardIssuer)
             cv.put("cardType", card.cardType)
             cv.put("cardOrg", card.cardOrg)
-            val sonuc = db.insert(table_name, null, cv)
+            val result = db.insert(table_name, null, cv)
 
-            if (sonuc == (-1).toLong()) {
+            if (result == (-1).toLong()) {
                 Toast.makeText(context, "Kayıt Başarısız!", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "Kayıt Başarılı", Toast.LENGTH_LONG).show()
             }
-            return sonuc
+            return result
         } else {
             return (-2).toLong()
         }
     }
 
-    fun updateData(card: Cards, pcn: String): Int {
+    fun updateData(card: Card, pcn: String): Int {
         if(card.cardNumber != pcn){
             val temp = getCardWithNumber(card.cardNumber!!)
             if(temp.id != null){
@@ -59,14 +59,14 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
                 cv.put("cardIssuer", card.cardIssuer)
                 cv.put("cardType", card.cardType)
                 cv.put("cardOrg", card.cardOrg)
-                val sonuc = db.update(table_name, cv, "id=?", arrayOf(card.id))
+                val result = db.update(table_name, cv, "id=?", arrayOf(card.id))
 
-                if (sonuc == -1) {
+                if (result == -1) {
                     Toast.makeText(context, "Güncelleme Başarısız!", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(context, "Güncelleme Başarılı", Toast.LENGTH_LONG).show()
                 }
-                return sonuc
+                return result
             }
         }else{
             val db = this.writableDatabase
@@ -88,14 +88,14 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
         }
     }
 
-    fun getCardList(): MutableList<Cards> {
-        val cardList: MutableList<Cards> = ArrayList()
+    fun getCardList(): MutableList<Card> {
+        val cardList: MutableList<Card> = ArrayList()
         val db = this.writableDatabase
         val sql = "SELECT * FROM $table_name"
         val result = db.rawQuery(sql, null)
         if (result.moveToFirst()) {
             do {
-                val card = Cards()
+                val card = Card()
                 card.cardNumber = result.getString(result.getColumnIndexOrThrow("cardNumber"))
                 card.cardExpire = result.getString(result.getColumnIndexOrThrow("cardExpire"))
                 card.cvv = result.getString(result.getColumnIndexOrThrow("cvv"))
@@ -113,8 +113,8 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
         return cardList
     }
 
-    private fun getCardWithNumber(cn: String): Cards {
-        val card = Cards()
+    private fun getCardWithNumber(cn: String): Card {
+        val card = Card()
         val db = this.writableDatabase
         val sql = "SELECT * FROM $table_name WHERE cardNumber == $cn"
         val result = db.rawQuery(sql, null)
@@ -135,8 +135,8 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, db_name, null, 
         return card
     }
 
-    fun getCardWithID(id: String): Cards {
-        val card = Cards()
+    fun getCardWithID(id: String): Card {
+        val card = Card()
         val db = this.writableDatabase
         val sql = "SELECT * FROM $table_name WHERE id == $id"
         val result = db.rawQuery(sql, null)

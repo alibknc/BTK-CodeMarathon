@@ -1,6 +1,6 @@
 package com.alibknc.wallet.models
 
-class Cards{
+class Card{
     var id: String? = null
     var cardNumber: String? = null
     var cardExpire: String? = null

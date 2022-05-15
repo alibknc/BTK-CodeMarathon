@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alibknc.wallet.R
-import com.alibknc.wallet.models.Cards
+import com.alibknc.wallet.models.Card
 import android.widget.LinearLayout
 import com.alibknc.wallet.views.DetailsActivity
 
-class CardListAdapter(private var list: List<Cards>): RecyclerView.Adapter<CardListAdapter.ViewHolder>() {
+class CardListAdapter(private var list: List<Card>): RecyclerView.Adapter<CardListAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var cardNumberText: TextView = itemView.findViewById(R.id.i_cardNumberText)
         var cardDateText: TextView = itemView.findViewById(R.id.i_cardDateText)

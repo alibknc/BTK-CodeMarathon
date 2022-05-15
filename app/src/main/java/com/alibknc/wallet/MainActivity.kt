@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val background = object : Thread() {
+        val splash = object : Thread() {
             override fun run() {
                 try {
                     Thread.sleep(3000)
@@ -22,6 +22,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        background.start()
+        splash.start()
     }
 }

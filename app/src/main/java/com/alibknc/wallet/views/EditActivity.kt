@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.alibknc.wallet.R
-import com.alibknc.wallet.models.Cards
+import com.alibknc.wallet.models.Card
 import com.alibknc.wallet.viewmodels.EditViewModel
 import com.huawei.hms.mlplugin.card.bcr.MLBcrCapture
 import com.huawei.hms.mlplugin.card.bcr.MLBcrCaptureConfig
@@ -35,7 +35,7 @@ class EditActivity : AppCompatActivity() {
     private lateinit var cardNumberText: TextView
     private lateinit var cardDateText: TextView
     private lateinit var cvvText: TextView
-    private var card = Cards()
+    private var card = Card()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -167,7 +167,7 @@ class EditActivity : AppCompatActivity() {
 
     private val callback: MLBcrCapture.Callback = object : MLBcrCapture.Callback {
         override fun onSuccess(bankCardResult: MLBcrCaptureResult) {
-            card = Cards()
+            card = Card()
             card.cardNumber = bankCardResult.number
             card.cardExpire = bankCardResult.expire
             card.cardIssuer = bankCardResult.issuer
