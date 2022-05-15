@@ -10,7 +10,7 @@ Uygulama bir cüzdan uygulamasıdır. Kullanıcılar kart bilgilerini kaydederek
 
 ## Yükleme - Kurulum
 
-Projeyi indirdikten sonra Android Studio ile açınız. HMS Core uygulaması içeren bir Android cihaz veya emulator üzerinde çalıştırınız. Proje paketleri ve versiyonları aşağıda listelenmiştir.
+Projeyi indirdikten sonra Android Studio ile açınız. HMS Core uygulaması içeren bir Android cihaz veya emulator üzerinde çalıştırınız. Proje paketleri ve versiyonları aşağıda listelenmiştir. Ayrıca şahsi kullanımda AppConnect Gallery konsolu üzerinden yapılandırma dosyasının güncellenmesi gerekmektedir.
 
 ```bash
 com.huawei.hms:ml-computer-card-bcr-plugin:3.4.0.301
