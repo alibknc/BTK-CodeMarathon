@@ -6,7 +6,7 @@ Uygulama bir cüzdan uygulamasıdır. Kullanıcılar kart bilgilerini kaydederek
 
 ## Proje Tanıtım Vidosu
 
-[Demo Video](https://github.com/alibknc/BTK-CodeMarathon/blob/main/video/demo.mp4)
+[Demo Video](https://github.com/alibknc/BTK-CodeMarathon/blob/main/video/video.mp4)
 
 ## Yükleme - Kurulum
 
