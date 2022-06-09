@@ -4,10 +4,6 @@ Muhammet Ali Bakınç
 
 Uygulama bir cüzdan uygulamasıdır. Kullanıcılar kart bilgilerini kaydederek istedikleri zaman kolayca ulaşabilmektedirler. Uygulamada HMS ML Kit Bank Card Recognition ile otomatik kart bilgileri okuma kullanılmıştır.
 
-## Proje Tanıtım Vidosu
-
-[Demo Video](https://github.com/alibknc/BTK-CodeMarathon/blob/main/video/video.mp4)
-
 ## Yükleme - Kurulum
 
 Projeyi indirdikten sonra Android Studio ile açınız. HMS Core uygulaması içeren bir Android cihaz veya emulator üzerinde çalıştırınız. Proje paketleri ve versiyonları aşağıda listelenmiştir. Ayrıca şahsi kullanımda AppConnect Gallery konsolu üzerinden yapılandırma dosyasının güncellenmesi gerekmektedir.
